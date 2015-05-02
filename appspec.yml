@@ -9,5 +9,6 @@ permissions:
      owner: root
      group: root
      mode: 755
+     overwrite: yes
      type:
        - file
