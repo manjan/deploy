@@ -12,3 +12,7 @@ permissions:
      overwrite: yes
      type:
        - file
+hooks:
+   BeforeInstall:
+    - location: scripts/installapache.sh
+      runas: root
