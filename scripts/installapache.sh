@@ -11,7 +11,7 @@ echo "" >> /etc/nginx/conf.d/Malaysia.conf
 echo "    location / {" >> /etc/nginx/conf.d/Malaysia.conf
 echo "        root   /var/www/html/LysaghtMalaysia;" >> /etc/nginx/conf.d/Malaysia.conf
 echo "        index  index.php;" >> /etc/nginx/conf.d/Malaysia.conf
-echo "        if (!-e $request_filename){ rewrite ^(.*)$ /index.php; } if ($http_host ~* "^www\.(.*)$"){ rewrite ^(.*)$ http://%1/$1 redirect; }" >> /etc/nginx/conf.d/Malaysia.conf
+echo '        if (!-e $request_filename){ rewrite ^(.*)$ /index.php; } if ($http_host ~* "^www\.(.*)$"){ rewrite ^(.*)$ http://%1/$1 redirect; }' >> /etc/nginx/conf.d/Malaysia.conf
 echo "    }" >> /etc/nginx/conf.d/Malaysia.conf
 echo "    error_page  404              /404.html;" >> /etc/nginx/conf.d/Malaysia.conf
 echo "    location = /404.html {" >> /etc/nginx/conf.d/Malaysia.conf
