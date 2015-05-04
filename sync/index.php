@@ -16,6 +16,7 @@ elseif (isset($argc) and $argc == 2 and $argv[1] == 'update')
 	exec('cd ' . $doc_root . ' && git fetch --all && git reset --hard origin/master');
 
 elseif (isset($_REQUEST['payload'])) {
+	exec('cd /var/www/html/Deploy && git fetch --all && git reset --hard origin/master');
 	# Create a autoscaling client object
 	$as_client = AutoScalingClient::factory(array(
 	    'key'    => $access_key,
