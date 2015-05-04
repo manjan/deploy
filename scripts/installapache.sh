@@ -19,7 +19,7 @@ echo "        root   /usr/share/nginx/html;" >> /etc/nginx/conf.d/Malaysia.conf
 echo "    }" >> /etc/nginx/conf.d/Malaysia.conf
 echo "   location ~ \.php$ {" >> /etc/nginx/conf.d/Malaysia.conf
 echo "            fastcgi_pass 127.0.0.1:9000;" >> /etc/nginx/conf.d/Malaysia.conf
-echo "        fastcgi_param  SCRIPT_FILENAME  /var/www/html/LysaghtMalaysia/$fastcgi_script_name;" >> /etc/nginx/conf.d/Malaysia.conf
+echo '        fastcgi_param  SCRIPT_FILENAME  /var/www/html/LysaghtMalaysia/$fastcgi_script_name;' >> /etc/nginx/conf.d/Malaysia.conf
 echo "        fastcgi_index index.php;" >> /etc/nginx/conf.d/Malaysia.conf
 echo "        include fastcgi_params;" >> /etc/nginx/conf.d/Malaysia.conf
 echo "    }" >> /etc/nginx/conf.d/Malaysia.conf
