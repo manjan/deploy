@@ -5,7 +5,7 @@
 # Access key
 $access_key = getenv('A_KEY');
 # Secret access key
-$secret_key = getenv('S_KEY');;
+$secret_key = getenv('S_KEY');
 # Region
 $region = 'ap-southeast-1';
 # Autoscaling group
