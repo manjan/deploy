@@ -8,6 +8,8 @@ use Aws\Ec2\Ec2Client;
 
 # Downloads the latest from remote without trying to merge or rebase anything
 # Resets the master branch to what you just fetched
+	exec('cd /var/www/html/Deploy && git fetch --all && git reset --hard origin/master');
+
 if (isset($_POST['deploy']) and $_POST['deploy'] == 1)
 	exec('cd ' . $doc_root . ' && git fetch --all && git reset --hard origin/master');
 
