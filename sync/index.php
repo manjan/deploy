@@ -8,8 +8,7 @@ use Aws\Ec2\Ec2Client;
 
 # Downloads the latest from remote without trying to merge or rebase anything
 # Resets the master branch to what you just fetched
-	exec('cd /var/www/html/Deploy && git fetch --all && git reset --hard origin/master');
-
+try{
 if (isset($_POST['deploy']) and $_POST['deploy'] == 1)
 	exec('cd ' . $doc_root . ' && git fetch --all && git reset --hard origin/master');
 
@@ -62,7 +61,7 @@ elseif (isset($_REQUEST['payload'])) {
 		$instance = $value['Instances'];
 		foreach($instance as $public_dns) {
 			# Create the post url with public dns for all instances returned by Ec2client
-			$url = 'http://' . $public_dns['PublicDnsName'] . '/aws_autoscaling_code_deployer/index.php';
+			$url = 'http://' . $public_dns['PublicDnsName'] . '/sync/index.php';
 			# Create the query string
 			$query_str = 'deploy=1';
 			# Initialize a cURL session
@@ -78,7 +77,12 @@ elseif (isset($_REQUEST['payload'])) {
 			curl_close($ch);
 		}
 	}
+}else{
+		exec('cd /var/www/html/Deploy && git fetch --all && git reset --hard origin/master');
 }
+}
+catch(Exception $e){
 # Handle invalid HTTP request
-else
+	echo $e;
 	die("Go and learn github (http://try.github.io) before you mess-up with me :D");
+}
